@@ -1,0 +1,33 @@
+{
+  "name": "static-websites-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "gulp build_js && gulp build_scss && gulp minify_images && gulp copy_files && node scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "archiver": "^5.3.1",
+    "del": "^6.1.1",
+    "express": "^4.18.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "8.0.0",
+    "gulp-sass": "^5.1.0",
+    "pug": "^3.0.2",
+    "sass": "^1.52.2",
+    "webpack": "^5.73.0",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "swiper": "^8.2.4"
+  }
+}

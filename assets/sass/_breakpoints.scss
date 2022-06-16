@@ -1,0 +1,73 @@
+@import './variables';
+
+@mixin sm() {
+    @media screen and (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin md() {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg() {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl() {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xxl() {
+    @media screen and (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin x601_768() {
+    @media screen and (min-width: 601px) and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin x769_992() {
+    @media screen and (min-width: 769px) and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin x993_1024() {
+    @media screen and (min-width: 993px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin x1025_1280() {
+    @media screen and (min-width: 1025px) and (max-width: 1280px)  {
+        @content;
+    }
+}
+
+@mixin x1281_1440() {
+    @media screen and (min-width: 1281px) and (max-width: 1440px)  {
+        @content;
+    }
+}
+
+@mixin x1441_1600() {
+    @media screen and (min-width: 1441px) and (max-width: 1600px)  {
+        @content;
+    }
+}
+
+@mixin x1601() {
+    @media screen and (min-width: 1601px)  {
+        @content;
+    }
+}
