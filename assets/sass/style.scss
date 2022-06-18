@@ -172,8 +172,15 @@ a.btn-link {
     }
 }
 
+.socials {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     background-color: $mainColor;
     padding: 120px 8px;
