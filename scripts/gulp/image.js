@@ -2,8 +2,6 @@ const { src, dest, series, watch } = require("gulp");
 const del = require("del");
 const { distImagePath, imagesPath } = require("../../lib/paths");
 
-console.log("imagesPath", imagesPath);
-
 exports.minify_images = series(deleteDistImage, minifyImages);
 exports.watch_images = watchImages;
 
