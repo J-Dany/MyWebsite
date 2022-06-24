@@ -131,6 +131,14 @@ a.btn-link {
             li {
                 padding: 4px 0px;
 
+                a {
+                    transition: all 256ms ease;
+
+                    &:hover {
+                        opacity: .5;
+                    }
+                }
+
                 @include sm {
                     padding: 6px 0px;
                 }
