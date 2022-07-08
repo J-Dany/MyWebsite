@@ -50,6 +50,22 @@ main {
 }
 
 .show-myinfo {
+
+  @include sm() {
+    overflow-y: auto;
+
+    .slide.myself {
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
+  }
+
+  @include xxl() {
+    .slide.myself {
+      margin: 0;
+    }
+  }
+
   @media screen and (max-width: 576px) {
     overflow: visible;
 

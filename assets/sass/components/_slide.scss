@@ -96,18 +96,15 @@ $array: (1, 2, 3);
       .img {
         background-color: $primary;
         display: flex;
+        align-items: center;
         justify-content: center;
 
         img {
           max-width: 200px;
 
           @include lg() {
-            max-width: unset;
+            max-width: 300px;
           }
-        }
-
-        @include lg() {
-          display: block;
         }
       }
     }
