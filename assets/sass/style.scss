@@ -13,6 +13,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
   color: white;
+  background-color: $primary;
 }
 
 main {
@@ -50,9 +51,23 @@ main {
 }
 
 .show-myinfo {
-  @media screen and (max-width: 576px) {
-    overflow: visible;
+  overflow-y: auto;
 
+  @include lg() {
+    .slide.myself {
+      margin-top: 5%;
+      margin-bottom: 50px;
+      height: unset;
+    }
+  }
+
+  @include xxl() {
+    .slide.myself {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
     .slide {
       display: none;
     }
