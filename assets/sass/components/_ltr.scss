@@ -1,0 +1,53 @@
+.slide.myself.active {
+  .left-to-right {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    .grow {
+      width: calc(100% - 72px);
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      padding: 4px 0px;
+      margin: 0 12px;
+      transition: all 512ms ease;
+      transform: translateX(0);
+      color: white;
+      animation: ltr 1s ease 750ms, scale-an 1s ease 1750ms;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@keyframes ltr {
+  from {
+    opacity: 0.3;
+    transform: translateX(-512px) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes scale-an {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

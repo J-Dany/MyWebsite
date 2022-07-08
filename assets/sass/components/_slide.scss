@@ -1,0 +1,168 @@
+$array: (1, 2, 3);
+
+.slide {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $primary;
+
+  &:not(:first-child) {
+    &.active {
+      animation: slide-animation 1s ease;
+      transform: translateY(0);
+    }
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .subtitle {
+    width: 100%;
+    max-width: 400px;
+
+    @include lg() {
+      max-width: 800px;
+    }
+  }
+
+  @for $i from 1 to length($array) + 1 {
+    &:nth-child(#{$i}) {
+      z-index: nth($array, length($array) - ($i - 1));
+    }
+  }
+
+  &.active {
+    z-index: 10;
+
+    .title {
+      animation: title-animation 1s ease, pulse 1s ease 1s;
+    }
+
+    .subtitle {
+      max-width: 400px;
+      animation: subtitle-animation 1s ease, pulse 1s ease 1s;
+
+      @include lg() {
+        max-width: 800px;
+      }
+    }
+  }
+
+  &.myself {
+    min-height: 100%;
+
+    .info {
+      margin-top: 24px;
+
+      .text {
+        margin-top: 24px;
+
+        .swiper {
+          margin: 24px 0px;
+        }
+
+        h4 {
+          margin: 24px 0px;
+          font-weight: 700;
+        }
+
+        .contacts {
+          margin-bottom: 24px;
+          a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: opacity 512ms ease;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+
+        .container-links {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        @include lg() {
+          margin-top: 0px;
+        }
+      }
+
+      .img {
+        background-color: $primary;
+        display: flex;
+        justify-content: center;
+
+        img {
+          max-width: 200px;
+
+          @include lg() {
+            max-width: unset;
+          }
+        }
+
+        @include lg() {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-animation {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes title-animation {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes subtitle-animation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

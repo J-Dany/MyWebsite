@@ -1,0 +1,20 @@
+.cit {
+  border-left: 4px solid #1565c0;
+  margin-bottom: 8px;
+  padding: 8px !important;
+  background-color: $citBackgroundColor;
+
+  p {
+    margin: 2px;
+  }
+
+  * {
+    font-family: "Playfair Display", sans-serif;
+    background-color: $citBackgroundColor;
+  }
+
+  .author {
+    text-align: right;
+    font-weight: bolder;
+  }
+}

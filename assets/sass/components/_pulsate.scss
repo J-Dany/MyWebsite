@@ -1,0 +1,63 @@
+.pulsate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 32px;
+  margin-top: 24%;
+
+  p {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .circle {
+    margin-right: 27px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: blue;
+      border-radius: 50%;
+      animation: pulsate 1s ease 0s infinite;
+    }
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  20% {
+    background-color: rgba(0, 0, 255, 0.8);
+  }
+
+  40% {
+    background-color: rgba(0, 0, 255, 0.6);
+  }
+
+  60% {
+    background-color: rgba(0, 0, 255, 0.4);
+  }
+
+  80% {
+    background-color: rgba(0, 0, 255, 0.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}

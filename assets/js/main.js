@@ -1,48 +1,32 @@
 import Swiper, { Autoplay } from 'swiper';
 
-const btnSubmitFormContact = document.getElementById("submitFormContact");
-const btnOpenModal = document.getElementById("btnOpenModal");
-const successMessage = document.getElementById("successMessage");
+const togglers = document.querySelectorAll(".pulsate");
+const slides = document.querySelectorAll(".slide");
+const main = document.querySelector("main");
 
-btnOpenModal.addEventListener("click", () => {
-    if (successMessage.classList.contains("d-block")) 
-    {
-        successMessage.classList.remove("d-block");
-        successMessage.classList.add("d-none");
-    }
-});
+togglers.forEach((toggler, index) => {
+    toggler.addEventListener("click", () => {
+        console.log("qui");
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("visited");
 
-btnSubmitFormContact.addEventListener("click", () => {
-    const form = document.forms["formContact"];
+        if ((index + 1) < slides.length) {
+            slides[index + 1].classList.add("active");
+            if (slides[index + 1].classList.contains("myself"))
+            {
+                main.classList.add("show-myinfo");
+            }
 
-    if (form.body.value.length <= 0)
-    {
-        alert("Empty message!");
-        return;
-    }
+            setTimeout(() => {
+                slides[index].parentElement.removeChild(slides[index]);
 
-    const formData = new FormData();
-    formData.append("from", form.from.value);
-    formData.append("contact", form.contact.value);
-    formData.append("request", form.request.value);
-    formData.append("body", form.body.value);
-
-    try
-    {
-        fetch("inserisci_richiesta.php", {
-            method: "POST",
-            body: formData
-        });
-    }
-    catch (ex)
-    {
-        alert("Error on sending email!");
-    }
-
-    successMessage.classList.add("d-block");
-    successMessage.classList.remove("d-none");
-
-    form.reset();
+                if (slides[index + 1].classList.contains("myself") && window.innerWidth < 576)
+                {
+                    slides[index + 1].style.height = "auto";
+                }
+            }, 1000);
+        }
+    });
 });
 
 new Swiper(".swiper", {
@@ -67,25 +51,4 @@ new Swiper(".swiper", {
         delay: 1,
         disableOnInteraction: false
     }
-});
-
-const sectionTitles = document.querySelectorAll(".show-hidden");
-sectionTitles.forEach(el => {
-    const hiddenContent = el.nextElementSibling;
-
-    el.addEventListener("click", () => {
-        const style = getComputedStyle(hiddenContent);
-        if (style.display === "none")
-        {
-            hiddenContent.style.display = "block";
-            el.classList.remove("normal-position");
-            el.classList.add("rotate");
-        }
-        else
-        {
-            hiddenContent.style.display = "none";
-            el.classList.add("normal-position");
-            el.classList.remove("rotate");
-        }
-    });
 });
