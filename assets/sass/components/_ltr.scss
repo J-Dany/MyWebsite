@@ -24,6 +24,10 @@
       color: white;
       animation: ltr 1s ease 750ms, scale-an 1s ease 1750ms;
 
+      svg {
+        fill: white;
+      }
+
       &:hover {
         cursor: pointer;
         transform: scale(1.2);

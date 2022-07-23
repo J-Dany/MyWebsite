@@ -60,6 +60,10 @@ main {
     }
   }
 
+  @include xl() {
+    overflow-y: hidden;
+  }
+
   @include xxl() {
     .slide.myself {
       margin: 0;
